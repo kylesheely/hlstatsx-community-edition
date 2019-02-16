@@ -3326,7 +3326,7 @@ while ($loop = &getLine()) {
 				$ev_obj_a
 			);
 		} elsif ($g_servers{$s_addr}->{play_game} == DYSTOPIA()) {
-			if ($s_output =~ /^weapon { steam_id: 'STEAM_\d+:(.+?)', weapon_id: (\d+), class: \d+, team: \d+, shots: \((\d+),(\d+)\), hits: \((\d+),(\d+)\), damage: \((\d+),(\d+)\), headshots: \((\d+),(\d+)\), kills: \(\d+,\d+\) }$/ && $g_mode eq "Normal") {
+			if ($s_output =~ /^weapon \{ steam_id: 'STEAM_\d+:(.+?)', weapon_id: (\d+), class: \d+, team: \d+, shots: \((\d+),(\d+)\), hits: \((\d+),(\d+)\), damage: \((\d+),(\d+)\), headshots: \((\d+),(\d+)\), kills: \(\d+,\d+\) \}$/ && $g_mode eq "Normal") {
 			
 				# Prototype: weapon { steam_id: 'STEAMID', weapon_id: X, class: X, team: X, shots: (X,X), hits: (X,X), damage: (X,X), headshots: (X,X), kills: (X,X) }
 				# Matches:
@@ -3360,7 +3360,7 @@ while ($loop = &getLine()) {
 						last;
 					}
 				}
-			} elsif ($s_output =~ /^(?:join|change)_class { steam_id: 'STEAM_\d+:(.+?)', .* (?:new_|)class: (\d+), .* }$/ && $g_mode eq "Normal") {
+			} elsif ($s_output =~ /^(?:join|change)_class \{ steam_id: 'STEAM_\d+:(.+?)', .* (?:new_|)class: (\d+), .* \}$/ && $g_mode eq "Normal") {
 				# Prototype: join_class { steam_id: 'STEAMID', team: X, class: Y, time: ZZZZZZZZZ }
 				# Matches:
 				#  6. Role Selection (Dystopia)
@@ -3379,7 +3379,7 @@ while ($loop = &getLine()) {
 						last;
 					}
 				}
-			} elsif ($s_output =~ /^objective { steam_id: 'STEAM_\d+:(.+?)', class: \d+, team: \d+, objective: '(.+?)', time: \d+ }$/ && $g_mode eq "Normal") {
+			} elsif ($s_output =~ /^objective \{ steam_id: 'STEAM_\d+:(.+?)', class: \d+, team: \d+, objective: '(.+?)', time: \d+ \}$/ && $g_mode eq "Normal") {
 				# Prototype: objective { steam_id: 'STEAMID', class: X, team: X, objective: 'TEXT', time: X }
 				# Matches:
 				# 11. Player Action (Dystopia Objectives)

@@ -988,7 +988,7 @@ sub doEvent_Frag
 	} elsif (checkBonusRound()) {
 		$desc = "(IGNORED) BonusRound: ";
 	} elsif ($killer && $victim) {
-		if (($g_servers{$s_addr}->{ignore_bots} == 1) && (($killer->{is_bot} == 1) || ($victim->{is_bot} == 1))) {
+		if (($g_servers{$s_addr}->{ignore_bots} == 1) && ($killer->{is_bot} == 1)) {
 			$desc = "(IGNORED) BOT: ";
 		} elsif ($g_servers{$s_addr}->{play_game} == L4D() && $killer->{team} eq "Infected" && $victim->{team} eq "Infected") {
 			$desc = "(IGNORED) L4D Infected TK: ";
